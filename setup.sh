@@ -22,13 +22,3 @@ SSH_CONFIG_CMD="sed -i 's/#Port 22/Port 4723/' /etc/ssh/sshd_config; sed -i 's/#
 SERVER_PASSWORD_CMD="echo 'root:$SERVER_ROOT_PASSWORD' | chpasswd"
 SERVER_SETUP_CMD="$INSTALL_CMD; $SSH_CONFIG_CMD; $SERVER_PASSWORD_CMD; exit"
 proot-distro login --isolated "$DISTRO_ALIAS" -- /usr/bin/bash -c "$SERVER_SETUP_CMD"
-
-## update repositories and install packages
-#apt-get update -y && apt-get upgrade -y; apt-get install -y openssh-server python vim
-#
-## configure ssh server
-#sed -i 's/#Port 22/Port 4723/' /etc/ssh/sshd_config; sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-#
-## set root password
-#echo 'root:$SERVER_ROOT_PASSWORD' | chpasswd
-#exit
