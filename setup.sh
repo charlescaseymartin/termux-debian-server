@@ -1,6 +1,7 @@
 # get proot-distro alias and server password
 read -p "Proot-distro alias: " DISTRO_ALIAS
 read -s -p "Server root password: " SERVER_ROOT_PASSWORD
+echo
 
 # verify proot-distro alias and password is not empty
 [ ! -z "$DISTRO_ALIAS" ] || echo "[!] No alias provided, please provide proot-distro alias."
