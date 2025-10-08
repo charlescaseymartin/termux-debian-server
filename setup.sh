@@ -18,8 +18,8 @@ proot-distro install --override-alias "$DISTRO_ALIAS" debian
 # login to debian
 INSTALL_CMD="apt-get update -y && apt-get upgrade -y; apt-get install -y openssh-server python vim"
 SSH_CONFIG_CMD="sed -i 's/#Port 22/Port 4723/' /etc/ssh/sshd_config; sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config"
-SERVER_PASSWORD_CMD="echo 'root:$SERVER_ROOT_PASSWORD' | chpasswd"
-SERVER_SETUP_CMD="-- /usr/bin/bash -c \"$INSTALL_CMD; $SSH_CONFIG_CMD; $SERVER_PASSWORD_CMD'; exit\""
+SERVER_PASSWORD_CMD="echo 'root:$SERVER_ROOT_PASSWORD' | chpasswd'"
+SERVER_SETUP_CMD="-- /usr/bin/bash -c \"$INSTALL_CMD; $SSH_CONFIG_CMD; $SERVER_PASSWORD_CMD; exit\""
 proot-distro login --isolated "$DISTRO_ALIAS" "$SERVER_SETUP_CMD"
 
 ## update repositories and install packages
