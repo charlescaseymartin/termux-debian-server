@@ -4,8 +4,8 @@ read -s -p "Server root password: " SERVER_ROOT_PASSWORD
 echo
 
 # verify proot-distro alias and password is not empty
-[ ! -z "$DISTRO_ALIAS" ] || echo "[!] No alias provided, please provide proot-distro alias." && exit 1
-[ ! -z "$SERVER_ROOT_PASSWORD" ] || echo "[!] No password provided, please provide a root password for server." && exit 1
+[ -z "$DISTRO_ALIAS" ] && echo "[!] No alias provided, please provide proot-distro alias." && exit 1
+[ -z "$SERVER_ROOT_PASSWORD" ] && echo "[!] No password provided, please provide a root password for server." && exit 1
 
 # update and upgrade
 pkg update -y && pkg pkg upgrade -y
