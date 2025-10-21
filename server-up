@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Web server start-up script
+
+echo "[*] Starting web server processes..."
+
+# Start SSH server
+sudo /usr/sbin/sshd
+
+# Start PostgreSQL server
+/usr/lib/postgresql/17/bin/pg_ctl start -D /var/lib/postgresql/17/main -l /var/log/postgresql/postgresql-17-main.log -s -o "-c config_file=/etc/postgresql/17/main/postgresql.conf"
+
+# Start application servers
+
+# Start Nginx server
+
+# Start Ngrok tunnel
+
+
+echo "[+] Successfully started web server processes."
