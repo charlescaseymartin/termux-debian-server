@@ -2,7 +2,7 @@
 termux-wake-lock
 
 # Start server
-#server_processes="-- /usr/bin/bash -c 'bash /root/server.sh'"
-#pd_command="pd sh test-server --isolated --no-kill-on-exit $server_processes"
-#nohup $pd_command >/dev/null 2>&1 &
+server_processes="-- /usr/local/bin/server-up"
+pd_command="pd sh webserver --user sonny --isolated --no-kill-on-exit $server_processes"
+nohup $pd_command >/dev/null 2>&1 &
 
